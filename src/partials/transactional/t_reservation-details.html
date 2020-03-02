@@ -1,0 +1,72 @@
+<container>
+
+	<row>
+		<column class="padding-b-small left-col-item text-left mbl-pad-md" large="7" small="12">
+			<a href="{{{ url }}}" target="_blank">
+				<p class="reservation-unit-address">
+					<!--raw-helper-->
+					<span class="reservation-unit-name"><strong>{{ name }}</strong></span><br />
+					{{ address_line_one }}<br />
+					{{ address_line_two }}
+					<!--/raw-helper-->
+				</p>
+			</a>
+		</column>
+		<column class="padding-b right-col-item text-left mbl-pad-md" large="5" small="12">
+			<p class="reservation-number">Confirmation: {{ reservation_id }}</p>
+		</column>
+	</row>
+</container>
+
+<container>
+	<row>
+		<column class="padding-b mbl-pad-sm">
+			<hr style="border-top:1px solid #CCD6DB; width: 100%; max-width:600px; height:1px;" />
+		</column>
+	</row>
+	<row class="reservation-details">
+		<column class="left-col-item padding-b mbl-pad-md" large="7" small="12">
+			<span class="check-in-out">Check in</span>
+			<p class="reservation-unit-date">
+				<!--raw-helper-->
+				{{ reservation_check_in_date }}
+				<!--/raw-helper-->
+			</p>
+		</column>
+		<column class="right-col-item mbl-pad-md" large="5" small="12">
+			<span class="check-in-out">Check out</span>
+			<p class="reservation-unit-date">
+				<!--raw-helper-->
+				{{ reservation_check_out_date }}
+				<!--/raw-helper-->
+			</p>
+		</column>
+	</row>
+	<row>
+		<column class="padding-t padding-b mbl-pad-sm">
+			<hr style="border-top:1px solid #CCD6DB; width: 100%; max-width:600px; height:1px;" />
+		</column>
+	</row>
+	<row class="reservation-details">
+		<column class="left-col-item mbl-pad-md" large="7" small="12">
+			<span class="check-in-out">Guests</span>
+			<p class="reservation-unit-date">
+				<!--raw-helper-->
+				{{#with guests}}
+					{{ adults }} Adults, {{ children }} children, {{ dogs }} dog(s)
+				{{/with}}
+				<!--/raw-helper-->
+			</p>
+		</column>
+
+		</column>
+	</row>
+</container>
+<container>
+	<row>
+		<column class="left-btn padding-b-huge padding-t-xtra-large text-center mbl-pad-md">
+			{{> t_primary-button-side label="View Your Trip" url=unit_1_url b_utm=utm_add }}
+		</column>
+		<column large="5" small="0"></column>
+	</row>
+</container>
