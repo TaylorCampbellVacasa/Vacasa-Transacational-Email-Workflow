@@ -93,7 +93,10 @@ function reload(cb) {
 }
 
 function watch() {
-  gulp.watch("src/**/*.*", gulp.series(handlebars, CSS, heml, reload));
+  var options = {
+    delay: 2000
+  };
+  gulp.watch("src/**/*.*", options, gulp.series(handlebars, CSS, heml, reload));
 }
 
 function minify() {
