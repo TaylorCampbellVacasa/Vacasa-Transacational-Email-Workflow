@@ -11,12 +11,11 @@ const size = require("gulp-size");
 const replace = require("gulp-string-replace");
 const remove = require("gulp-email-remove-unused-css");
 
-function CSS(cb) {
+function CSS() {
   return gulp
     .src("temp/*.html")
     .pipe(styleInject())
     .pipe(gulp.dest("./temp"));
-  cb();
 }
 
 function heml(cb) {
@@ -53,18 +52,11 @@ function heml(cb) {
   cb();
 }
 
-function handlebars(cb) {
+function handlebars() {
   var templateData = JSON.parse(fs.readFileSync("src/data/data.json")),
     options = {
       ignorePartials: true,
-      batch: [
-        "./src/partials",
-        "./src/partials/marketing",
-        "./src/partials/marketing/headers",
-        "./src/partials/marketing/hero",
-        "./src/partials/marketing/buttons",
-        "./src/partials/transactional"
-      ],
+      batch: ["./src/partials"],
       helpers: {
         "raw-helper": function(options) {
           return options.fn();
@@ -104,7 +96,7 @@ function watch() {
   gulp.watch("src/**/*.*", gulp.series(handlebars, CSS, heml, reload));
 }
 
-function minify(cb) {
+function minify() {
   return gulp
     .src("dist/index.html")
     .pipe(
@@ -113,10 +105,9 @@ function minify(cb) {
       })
     )
     .pipe(gulp.dest("dist/"));
-  cd();
 }
 
-function removeCSS(cb) {
+function removeCSS() {
   return gulp
     .src("dist/index.html")
     .pipe(
@@ -133,7 +124,6 @@ function removeCSS(cb) {
       })
     )
     .pipe(gulp.dest("dist/"));
-  cb();
 }
 
 function fileSize() {
@@ -197,12 +187,11 @@ function rawRenderDesignPartials() {
     .pipe(gulp.dest("src/data/"));
 }
 
-function fixInlineAll(cb) {
+function fixInlineAll() {
   return gulp
     .src(["dist/index.html"])
     .pipe(replace(/\* {/, "h1, h2, h3, p, span, a {"))
     .pipe(gulp.dest("dist/"));
-  cb();
 }
 
 exports.template = gulp.series(
@@ -221,14 +210,13 @@ exports.build = gulp.series(
   handlebars,
   CSS,
   heml,
+  minify,
   removeCSS,
   fixInlineAll,
-  minify,
   fileSize
 );
-exports.mini = gulp.series(minify, fileSize);
-exports.cull = gulp.series(removeCSS, fileSize);
-exports.smol_fix = gulp.series(fixInlineAll, fileSize);
+
+exports.prodFin = gulp.series(minify, removeCSS, fixInlineAll, fileSize);
 
 exports.oldBuild = gulp.series(handlebars, CSS, heml, minify, fileSize);
 

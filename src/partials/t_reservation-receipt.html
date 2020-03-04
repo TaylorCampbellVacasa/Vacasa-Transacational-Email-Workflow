@@ -2,9 +2,7 @@
 
 	<row>
 		<column class="padding-b text-left gutter mbl-pad-md" large="7" small="12">
-			<a href="{{{ url }}}" target="_blank">
-				<h2 class="t_bloc">Your Receipt</h2>
-			</a>
+			<h2 class="t_bloc">Your Receipt</h2>
 		</column>
 	</row>
 </container>
@@ -16,9 +14,10 @@
 				Total cost
 			</p>
 		</column>
+		<!-- {{{{raw-helper}}}} -->
 		<column class="right-col-item text-right  mbl-pad-md-r" large="5" small="6">
 			<p class="reservation-unit-date">
-				$425.65
+				${{ RESERVATION_TOTAL }}
 			</p>
 		</column>
 	</row>
@@ -30,7 +29,7 @@
 		</column>
 		<column class="right-col-item text-right mbl-pad-md-r" large="5" small="6">
 			<p class="reservation-unit-date">
-				-&nbsp;$425.65
+				-&nbsp;${{ RESERVATION_PAID }}
 			</p>
 		</column>
 	</row>
@@ -47,15 +46,15 @@
 		</column>
 		<column class="right-col-item text-right mbl-pad-md-r" large="5" small="6">
 			<p class="reservation-unit-date">
-				<strong>$0.00</strong>
-			</p>
+				<strong>${{ RESERVATION_BALANCE }}</strong>
+			</p><!-- {{{{/raw-helper}}}} -->
 		</column>
 	</row>
 </container>
 <container>
 	<row>
 		<column class="left-btn padding-b-huge padding-t-xtra-large text-center mbl-pad-md">
-			{{> t_secondary-button-side label="View Receipt" url=unit_1_url b_utm=utms }}
+			{{> t_secondary-button-side label="View Receipt" url="{{{ TRIP_PORTAL_URL }}}" b_utm=utms }}
 		</column>
 		<column large="5" small="0"></column>
 	</row>
