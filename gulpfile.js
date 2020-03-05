@@ -10,6 +10,7 @@ const htmlmin = require("gulp-htmlmin");
 const size = require("gulp-size");
 const replace = require("gulp-string-replace");
 const remove = require("gulp-email-remove-unused-css");
+const util = require("handlebars-utils");
 
 handlebarsfn.Handlebars.registerHelper("date", require("helper-date"));
 
@@ -49,12 +50,12 @@ function heml(cb) {
         // throws an error, you could also catch it here
         if (err) throw err;
       });
+      cb();
     }
   );
-  cb();
 }
 
-function handlebars() {
+function handlebars(cb) {
   var templateData = JSON.parse(fs.readFileSync("src/data/data.json")),
     options = {
       ignorePartials: true,
@@ -71,6 +72,19 @@ function handlebars() {
           }
 
           return ret;
+        },
+        or: function(/* any, any, ..., options */) {
+          var len = arguments.length - 1;
+          var options = arguments[len];
+          var val = false;
+
+          for (var i = 0; i < len; i++) {
+            if (arguments[i]) {
+              val = true;
+              break;
+            }
+          }
+          return util.value(val, this, options);
         }
       }
     };
@@ -95,9 +109,7 @@ function reload(cb) {
 }
 
 function watch() {
-  var options = {
-    delay: 3000
-  };
+  var options = {};
   gulp.watch("src/**/*.*", options, gulp.series(handlebars, CSS, heml, reload));
 }
 

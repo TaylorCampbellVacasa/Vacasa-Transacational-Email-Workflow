@@ -11,43 +11,28 @@
 
 <container>
 	<row class="reservation-details res-txt">
-		<column large="6" small="12" class="left-col-item amenity-name padding-b mbl-pad-md">
-			<img inline infer="retina" src="https://vacasa-email.imgix.net/Icon-shampoo.png?h=48" alt="crab">
-			<span>
-				Shampoo, conditioner, and soap
-			</span>
-		</column>
-		<column large="6" small="12" class="right-col-item amenity-name padding-b mbl-pad-md">
-			<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-cleaning-two.png?h=48" alt="crab">
+		<column large="7" small="12" class="left-col-item amenity-name mbl-pad-md">
+			<img inline infer="retina" src="https://vacasa-email.imgix.net/Icon-shampoo.png?h=48"
+				alt="Shampoo icon"><span>&nbsp;&nbsp;Shampoo, conditioner, and soap</span><br /><br />
 
-			<span>
-				Basic cleaning supplies
-			</span>
-		</column>
-	</row>
-	<row class="reservation-details res-txt">
-		<column large="6" small="12" class="left-col-item amenity-name padding-b mbl-pad-md">
-			<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-tier1-linens.png?h=48" alt="crab">
+			{{#or UNIT_AMENITIES_MAP_TOWELSPROVIDED UNIT_AMENITIES_MAP_LINENSPROVIDED }}
+				<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-tier1-linens.png?h=48"
+					alt="Towels icon"><span>&nbsp;&nbsp;Fresh linens and towels</span><br /><br />
+			{{/or}}
+			<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-cooking.png?h=48"
+				alt="Pots and pans icon"><span>&nbsp;&nbsp;Cookware and dishes</span><br /><br />
 
-			<span>
-				Fresh linens and towels
-			</span>
-		</column>
-		<column large="6" small="12" class="right-col-item amenity-name padding-b mbl-pad-md">
-			<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-wifi.png?h=48" alt="crab">
 
-			<span>
-				Internet Access
-			</span>
-		</column>
-	</row>
-	<row class="reservation-details res-txt">
-		<column large="6" small="12" class="left-col-item amenity-name padding-b mbl-pad-md">
-			<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-cooking.png?h=48" alt="crab">
 
-			<span>
-				Cookware and dishes
-			</span>
+		</column>
+		<column large="5" small="12" class="right-col-item amenity-name padding-b mbl-pad-md">
+			<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-cleaning-two.png?h=48"
+				alt="Cleaning supplies icon"><span>&nbsp;&nbsp;Basic cleaning supplies</span><br /><br />
+			{{#if RESERVATION_WIFI}}
+				<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-wifi.png?h=48"
+					alt="Wifi icon"><span>&nbsp;&nbsp;Internet Access</span>
+			{{/if}}
+
 		</column>
 
 	</row>
