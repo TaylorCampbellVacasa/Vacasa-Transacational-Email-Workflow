@@ -6,7 +6,10 @@
 				<!-- raw-helper -->
 				<span class="reservation-unit-name"><strong>{{ UNIT_NAME }}</strong></span><br />
 				{{ RESERVATION_UNIT_ADDRESS_ADDRESS_1 }}<br />
-				{{ RESERVATION_UNIT_ADDRESS_CITY }}, {{ RESERVATION_UNIT_ADDRESS_STATE }} RESERVATION_UNIT_ADDRESS_ZIP
+				{{#if RESERVATION_UNIT_ADDRESS_ADDRESS_2 }}
+					{{RESERVATION_UNIT_ADDRESS_ADDRESS_2}}<br />
+				{{/if}}
+				{{ RESERVATION_UNIT_ADDRESS_CITY }}, {{ RESERVATION_UNIT_ADDRESS_STATE }} {{ RESERVATION_UNIT_ADDRESS_ZIP }}
 				<!-- /raw-helper -->
 			</p>
 		</column>
@@ -27,7 +30,7 @@
 			<span class="check-in-out">Check in</span>
 			<p class="reservation-unit-date">
 				<!-- raw-helper -->
-				{{ RESERVATION_CHECK_IN_TIME }}
+				{{date RESERVATION_CHECK_IN_TIME "ddd MMM D, h:mm a" }}
 				<!-- /raw-helper -->
 			</p>
 		</column>
@@ -35,7 +38,7 @@
 			<span class="check-in-out">Check out</span>
 			<p class="reservation-unit-date">
 				<!-- raw-helper -->
-				{{ RESERVATION_CHECK_OUT_TIME }}
+				{{date RESERVATION_CHECK_OUT_TIME "ddd MMM D, h:mm a" }}
 				<!-- /raw-helper -->
 			</p>
 		</column>

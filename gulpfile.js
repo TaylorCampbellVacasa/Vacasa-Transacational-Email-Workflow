@@ -11,6 +11,8 @@ const size = require("gulp-size");
 const replace = require("gulp-string-replace");
 const remove = require("gulp-email-remove-unused-css");
 
+handlebarsfn.Handlebars.registerHelper("date", require("helper-date"));
+
 function CSS() {
   return gulp
     .src("temp/*.html")
@@ -94,7 +96,7 @@ function reload(cb) {
 
 function watch() {
   var options = {
-    delay: 2000
+    delay: 3000
   };
   gulp.watch("src/**/*.*", options, gulp.series(handlebars, CSS, heml, reload));
 }
