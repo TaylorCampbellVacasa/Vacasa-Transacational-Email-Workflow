@@ -16,13 +16,24 @@
 				alt="Shampoo icon"><span>&nbsp;&nbsp;Shampoo, conditioner, and soap</span><br /><br />
 
 			{{#or UNIT_AMENITIES_MAP_TOWELSPROVIDED UNIT_AMENITIES_MAP_LINENSPROVIDED }}
-				<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-tier1-linens.png?h=48"
-					alt="Towels icon"><span>&nbsp;&nbsp;Fresh linens and towels</span><br /><br />
+				{{#and UNIT_AMENITIES_MAP_TOWELSPROVIDED UNIT_AMENITIES_MAP_LINENSPROVIDED }}
+					<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-tier1-linens.png?h=48"
+						alt="Towels icon"><span>&nbsp;&nbsp;Fresh linens and towels</span><br /><br />
+					{{else}}
+						{{#if UNIT_AMENITIES_MAP_TOWELSPROVIDED }}
+							<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-tier1-linens.png?h=48"
+								alt="Towels icon"><span>&nbsp;&nbsp;Clean towels</span><br /><br />
+						{{else}}
+							<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-tier1-linens.png?h=48"
+								alt="Towels icon"><span>&nbsp;&nbsp;Fresh linens</span><br /><br />
+						{{/if}}
+				{{/and}}
 			{{/or}}
-			<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-cooking.png?h=48"
-				alt="Pots and pans icon"><span>&nbsp;&nbsp;Cookware and dishes</span><br /><br />
 
-
+			{{#or UNIT_AMENITIES_MAP_FRYPANLARGE UNIT_AMENITIES_MAP_FRYPANSMALL UNIT_AMENITIES_MAP_POTLARGE UNIT_AMENITIES_MAP_POTMEDIUM UNIT_AMENITIES_MAP_POTSMALL}}
+				<img inline infer="retina" src="https://vacasa-email.imgix.net/icon-cooking.png?h=48"
+					alt="Pots and pans icon"><span>&nbsp;&nbsp;Cookware and dishes</span><br /><br />
+			{{/or}}
 
 		</column>
 		<column large="5" small="12" class="right-col-item amenity-name padding-b mbl-pad-md">
