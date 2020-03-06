@@ -119,6 +119,20 @@ a {
   padding-left: 4px;
   padding-right: 24px;
 }
+.left-panel-item {
+  padding-left: 12px;
+  padding-right: 4;
+}
+
+.right-panel-item {
+  padding-left: 0;
+  padding-right: 12px;
+}
+
+.panel-item {
+  padding-left: 12px;
+  padding-right: 12px;
+}
 
 @media only screen and (max-width: 600px) {
   body {
@@ -175,6 +189,25 @@ a {
   .fixed.right-col-item-xl,
   .fixed.right-col-item {
     padding-left: 4px !important;
+  }
+
+  .left-panel-item {
+    padding-left: 16px !important;
+    padding-right: 4 !important;
+  }
+
+  .right-panel-item {
+    padding-left: 0 !important;
+    padding-right: 16px !important;
+  }
+
+  .panel-item {
+    padding-left: 16x !important;
+    padding-right: 16px !important;
+  }
+
+  .dis-none-sm {
+    padding: 0 !important;
   }
 }
 

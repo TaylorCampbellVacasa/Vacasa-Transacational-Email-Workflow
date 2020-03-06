@@ -27,16 +27,16 @@
 	</row>
 	<row class="reservation-details">
 		<column class="left-col-item padding-b mbl-pad-md" large="7" small="12">
-			<span class="check-in-out">Check in</span>
-			<p class="reservation-unit-date">
+			<span class="info-prehead">Check in</span>
+			<p class="reservation-info-value">
 				<!-- raw-helper -->
 				{{date RESERVATION_CHECK_IN_TIME "ddd MMM D, h:mm a" }}
 				<!-- /raw-helper -->
 			</p>
 		</column>
 		<column class="right-col-item mbl-pad-md" large="5" small="12">
-			<span class="check-in-out">Check out</span>
-			<p class="reservation-unit-date">
+			<span class="info-prehead">Check out</span>
+			<p class="reservation-info-value">
 				<!-- raw-helper -->
 				{{date RESERVATION_CHECK_OUT_TIME "ddd MMM D, h:mm a" }}
 				<!-- /raw-helper -->
@@ -50,8 +50,8 @@
 	</row>
 	<row class="reservation-details">
 		<column class="left-col-item mbl-pad-md" large="7" small="12">
-			<span class="check-in-out">Guests</span>
-			<p class="reservation-unit-date">
+			<span class="info-prehead">Guests</span>
+			<p class="reservation-info-value">
 				<!-- raw-helper -->
 				{{ RESERVATION_ADULTS }} Adults, {{ RESERVATION_CHILDREN }} children, {{ RESERVATION_PETS }} dog(s)
 				<!-- /raw-helper -->
