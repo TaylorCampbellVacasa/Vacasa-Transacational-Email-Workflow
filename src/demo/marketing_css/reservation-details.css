@@ -39,7 +39,7 @@
   font-weight: 500;
 }
 
-.check-in-out {
+.info-prehead {
   margin: 0;
   color: #707579;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -49,7 +49,7 @@
   word-wrap: none;
 }
 
-.reservation-unit-date {
+.reservation-info-value {
   margin: 0;
   color: #000000;
   font-size: 16px;

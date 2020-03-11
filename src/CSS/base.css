@@ -206,8 +206,9 @@ a {
     padding-right: 16px !important;
   }
 
-  .dis-none-sm {
+  .dis-none-cell-sm {
     padding: 0 !important;
+    display: none !important;
   }
 }
 

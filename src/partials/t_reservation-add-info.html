@@ -1,3 +1,4 @@
+<!-- {{{{raw-helper}}}} -->
 <container class="add-info">
 	<row>
 		<column class="padding-b-large text-gutter text-left mbl-pad-md">
@@ -11,8 +12,9 @@
 			</h3>
 
 			<p class="body-text">
-				No more searching your inbox or snapping screenshots--get entry codes in offline mode, then
-				connect to WiFi instantly when you walk in the door.</p>
+				If you need to cancel your trip or change the dates, give us a call at 800-544-0300. You
+				can also cancel in your
+				online <a href="https://www.vacasa.com/trip/">Trip Manager</a>.</p>
 		</column>
 	</row>
 	<row>
@@ -37,6 +39,7 @@
 				information—the week before your trip.</p>
 		</column>
 	</row>
+
 	{{#if UNITS_WARNING_EMAIL_COPY }}
 		<row>
 			<column class="padding-b-large text-gutter text-left mbl-pad-md">
@@ -45,16 +48,17 @@
 				</h3>
 
 				<p class="body-text">
-					{{ UNITS_WARNING_EMAIL_COPY }}</p>
+					{{{ UNITS_WARNING_EMAIL_COPY }}}</p>
 			</column>
 		</row>
 	{{/if}}
+
 </container>
 <container>
 	<row>
-		<column large="1" small="1" class="icon-col mbl-pad-md-l padding-t-xtra-small res-warn-icon">
+		<column large="1" small="1" class="icon-col-warn mbl-pad-md-l padding-t-xtra-small res-warn-icon">
 			<img infer="retina" class="res-warn-icon"
-				src="http://vacasa-email.imgix.net/icon-tier1-exclamation-circle.png?w=40" alt="">
+				src="http://vacasa-email.imgix.net/icon-tier1-exclamation-circle.png?w=40" alt="Important information">
 		</column>
 		<column large="11" small="11" class="icon-text-gutter padding-b-large mbl-pad-md-r">
 			<p class="info-text">We may send you text messages as part of this transaction, before check-in and shortly after
@@ -63,3 +67,4 @@
 		</column>
 	</row>
 </container>
+<!-- {{{{/raw-helper}}}} -->
